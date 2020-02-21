@@ -19,7 +19,7 @@ public class BoardController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("/board/view{no}")
+	@RequestMapping("/board/view/{no}")
 	public String view(@PathVariable("no") Long no) {
 		System.out.println(no);
 		return "BoardController:view";

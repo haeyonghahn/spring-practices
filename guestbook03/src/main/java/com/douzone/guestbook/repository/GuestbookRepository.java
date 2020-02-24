@@ -102,17 +102,17 @@ public class GuestbookRepository {
 		return result;
 	}
 	
-	public boolean delete(Long no, String password) {
+	public int delete(Long no, String password) {
 		GuestBookVo vo = new GuestBookVo();
 		vo.setNo(no);
 		vo.setPassword(password);
 		return delete(vo);
 	}
 	
-	public boolean delete(GuestBookVo GuestBookVo) {
+	public int delete(GuestBookVo GuestBookVo) {
 		Connection connection = null;
 		PreparedStatement pstmt = null;
-		boolean result = false;
+		int result = 1;
 
 		try {
 			connection = getConnection();
@@ -124,7 +124,7 @@ public class GuestbookRepository {
 			int count = pstmt.executeUpdate();
 
 			// 5. 성공 여부
-			result = count == 1;
+			result = count;
 
 		} catch (SQLException e) {
 			System.out.println("error : " + e);

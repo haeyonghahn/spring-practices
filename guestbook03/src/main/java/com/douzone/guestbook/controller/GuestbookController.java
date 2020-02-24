@@ -33,7 +33,7 @@ public class GuestbookController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping(value="/form/{no}", method=RequestMethod.GET)
+	@RequestMapping(value="/delete/{no}", method=RequestMethod.GET)
 	public String delete(@PathVariable("no") Long no, Model model) {
 		model.addAttribute("no", no);
 		return "delete";

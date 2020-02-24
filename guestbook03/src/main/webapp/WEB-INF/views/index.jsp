@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%
-	pageContext.setAttribute("replaceChar", "\n");
+	pageContext.setAttribute("newLine", "\n");
 %>
 
 <html>
@@ -30,17 +30,17 @@
 		</table>
 	</form>
 	<br>
-	<c:set var="count" value="${fn:length(list) + 1 }"></c:set>
-	<c:forEach items="${list }" var="vo">
+	<c:set var="count" value="${fn:length(list) }"></c:set>
+	<c:forEach items="${list }" var="vo" varStatus="status">
 	<table width=510 border=1>
 		<tr>
-			<td>${count-1 }</td>
+			<td>${count-status.index }</td>
 			<td>${vo.name }</td>
 			<td>${vo.regDate }</td>
 			<td><a href="${pageContext.request.contextPath }/form/${vo.no }">삭제</a></td>
 		</tr>
 		<tr>
-			<td colspan=4>${vo.contents }</td>
+			<td colspan=4>${fn:replace(vo.contents, newLine, "<br>") }</td>
 		</tr>
 	</table>
 	</c:forEach>

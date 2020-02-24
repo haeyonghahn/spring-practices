@@ -3,6 +3,7 @@ package com.douzone.guestbook.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,15 +36,12 @@ public class GuestbookController {
 	@RequestMapping(value="/form/{no}", method=RequestMethod.GET)
 	public String delete(@PathVariable("no") Long no, Model model) {
 		model.addAttribute("no", no);
-		return "deleteform";
+		return "delete";
 	}
 	
 	@RequestMapping(value="/delete/{no}", method=RequestMethod.POST)
-	public String delete(@RequestParam String password, @PathVariable("no") Long no) {
-		GuestBookVo vo = new GuestBookVo();
-		vo.setNo(no);
-		vo.setPassword(password);
-		guestbookRepository.delete(vo);
+	public String delete(@RequestParam(value="password", required=true, defaultValue="") String password, @PathVariable("no") Long no) {
+		guestbookRepository.delete(no, password);
 		return "redirect:/";
 	}
 

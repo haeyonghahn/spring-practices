@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.contrib.java.lang.system.SystemOutRule;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -24,6 +25,8 @@ public class DVDPlayerJavaConfigTest {
 	private DigitalVideoDisc dvd;
 	
 	@Autowired
+	// @Qualifier("dvdPlayer03") // 설정 클래스 Bean 생성 메소드 이름
+	@Qualifier("player04") // @Bean 이름
 	private DVDPlayer player;
 	
 	@Test

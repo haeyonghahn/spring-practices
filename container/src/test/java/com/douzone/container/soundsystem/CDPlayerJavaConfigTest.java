@@ -39,6 +39,6 @@ public class CDPlayerJavaConfigTest {
 	@Test
 	public void testPlay() {
 		cdPlayer.play();
-		assertEquals("Playing 지구멸망 by 양승호", systemOutRule.getLog().replace("\r\n", ""));
+		assertEquals("Playing 지구멸망 by 양승호", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
 	}
 }

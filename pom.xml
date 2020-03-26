@@ -9,7 +9,7 @@
 	
 	<packaging>pom</packaging>
 	<modules>
-		<module>hellospring</module>
+		<module>hellospring03</module>
 		<module>emaillist03</module>
 		<module>guestbook03</module>
 		<module>fileupload</module>
@@ -18,5 +18,6 @@
 		<module>container</module>
 		<module>hellospring04</module>
 		<module>hellospring05</module>
+		<module>hellospring06</module>
 	</modules>
 </project>

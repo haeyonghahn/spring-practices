@@ -4,20 +4,29 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.5.RELEASE</version>
-		<relativePath/>
+		<groupId>com.douzone</groupId>
+		<artifactId>spring-practices</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	
-	<groupId>com.douzone</groupId>
 	<artifactId>hellospring06</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>2.2.5.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	
 	<dependencies>
 		<!-- spring boot core -->
@@ -26,10 +35,23 @@
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 		
+		<!-- spring boot devtools : live load -->
+		<!-- jsp가 수정되었을 때 바로바로 변경 사항을 보여줄 수 있도록 한다. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+		
 		<!-- spring boot web starter -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+		<!-- jstl -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
 		</dependency>
 		
 		<!-- tomcat jasper : jsp를 servlet으로 바꿔주는 것 -->

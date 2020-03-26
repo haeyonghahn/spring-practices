@@ -42,6 +42,6 @@ public class DVDPlayerJavaConfigTest {
 	@Test
 	public void testPlay() {
 		player.play();
-		assertEquals("playing Movie MARVEL's Avengers", systemOutRule.getLog().replace("\r\n", "").replace("/n", ""));
+		assertEquals("playing Movie MARVEL's Avengers", systemOutRule.getLog().replace("\r\n", "").replace("\n", ""));
 	}
 }
